@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 class CounterPage extends StatefulWidget {
   CounterPage({Key? key}) : super(key: key);
@@ -12,54 +13,58 @@ class _CounterPageState extends State<CounterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Title'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const Text(
-            'Numero de clicks',
-            style: TextStyle(fontSize: 20),
-          ),
-          Text(
-            '$_contable',
-            style: TextStyle(fontSize: 20, color: Colors.red),
-          ),
-          Row(
+        appBar: AppBar(
+          title: const Text('Title'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.amber[200],
+              const Text(
+                'Numero de clicks',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.amber[300],
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.amber[400],
+              Text(
+                '$_contable',
+                style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold),
               ),
             ],
-          )
-        ],
+          ),
+        ),
+        floatingActionButton: _buttonsCounter());
+  }
+}
+
+Widget _buttonsCounter() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: <Widget>[
+      const SizedBox(
+        width: 20,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _contable++;
-          });
-        },
+      FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.exposure_zero),
+      ),
+      const Spacer(),
+      FloatingActionButton(
+        onPressed: () {},
         child: const Icon(
-          Icons.add,
-          color: Colors.white,
-          size: 24.0,
-          semanticLabel: 'Text to announce in accessibility modes',
+          Icons.remove,
         ),
       ),
-    );
-  }
+      const SizedBox(
+        width: 5,
+      ),
+      FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(
+          Icons.add,
+        ),
+      ),
+    ],
+  );
 }
