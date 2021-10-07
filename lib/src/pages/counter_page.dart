@@ -36,35 +36,53 @@ class _CounterPageState extends State<CounterPage> {
         ),
         floatingActionButton: _buttonsCounter());
   }
-}
 
-Widget _buttonsCounter() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: <Widget>[
-      const SizedBox(
-        width: 20,
-      ),
-      FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.exposure_zero),
-      ),
-      const Spacer(),
-      FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(
-          Icons.remove,
+  Widget _buttonsCounter() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        const SizedBox(
+          width: 20,
         ),
-      ),
-      const SizedBox(
-        width: 5,
-      ),
-      FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(
-          Icons.add,
+        FloatingActionButton(
+          onPressed: _reset,
+          child: const Icon(Icons.exposure_zero),
         ),
-      ),
-    ],
-  );
+        const Spacer(),
+        FloatingActionButton(
+          onPressed: _decrement,
+          child: const Icon(
+            Icons.remove,
+          ),
+        ),
+        const SizedBox(
+          width: 5,
+        ),
+        FloatingActionButton(
+          onPressed: _increment,
+          child: const Icon(
+            Icons.add,
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _increment() {
+    setState(() {
+      _contable++;
+    });
+  }
+
+  void _decrement() {
+    setState(() {
+      _contable--;
+    });
+  }
+
+  void _reset() {
+    setState(() {
+      _contable = 0;
+    });
+  }
 }
