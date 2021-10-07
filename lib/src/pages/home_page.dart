@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final String text;
+
+  const HomePage({required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +61,15 @@ class HomePage extends StatelessWidget {
             ],
           )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.favorite,
+          color: Colors.amber[900],
+          size: 24.0,
+          semanticLabel: 'Text to announce in accessibility modes',
+        ),
       ),
     );
   }
