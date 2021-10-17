@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/services.dart' show rootBundle;
 
 class _MenuProvider {
@@ -7,11 +9,11 @@ class _MenuProvider {
     _loadData();
   }
 
-  void _loadData() {
-    rootBundle.loadString('data/menu_opts.json').then((json) {
-      print(json);
-      print('aa');
-    });
+  Future<List<dynamic>> _loadData() async {
+    final resp = await rootBundle.loadString('data/menu_opts.json');
+    Map dataMap = json.decode(resp);
+    options = dataMap['rutas'];
+    return options;
   }
 }
 
