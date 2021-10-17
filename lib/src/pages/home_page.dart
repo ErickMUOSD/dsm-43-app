@@ -1,4 +1,5 @@
 import 'package:dsm_43_app/src/providers/menu_provider.dart';
+import 'package:dsm_43_app/src/utils/icon_string_util.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -29,10 +30,7 @@ class HomePage extends StatelessWidget {
       data.forEach((element) {
         final wTemp = ListTile(
           title: Text(element['texto']),
-          leading: const Icon(
-            Icons.access_alarm_outlined,
-            color: Colors.red,
-          ),
+          leading: getIcon(element['icon']),
           trailing: const Icon(
             Icons.keyboard_arrow_right,
             color: Colors.cyan,
