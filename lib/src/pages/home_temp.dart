@@ -23,7 +23,7 @@ class HomePageTemp extends StatelessWidget {
     );
   }
 
-  List<Widget> _listTile() {
+  List<ListTile> _listTile() {
     List<ListTile> list = [];
 
     for (var item in options) {
@@ -33,5 +33,13 @@ class HomePageTemp extends StatelessWidget {
       list.add(widgetTile);
     }
     return list;
+  }
+
+  List<ListTile> _listTileShort() {
+    return options.map((item) {
+      return ListTile(
+        title: Text(item),
+      );
+    }).toList();
   }
 }
