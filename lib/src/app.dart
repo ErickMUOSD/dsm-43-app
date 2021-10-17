@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/counter_page.dart';
+import 'pages/home_temp.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CounterPage(),
+      home: HomePageTemp(),
     );
   }
 }
