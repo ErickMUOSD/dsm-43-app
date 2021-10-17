@@ -7,24 +7,16 @@ class HomePageTemp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Componentes'),
-      ),
-      body: ListView.builder(
-        itemCount: options.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            title: Text('Value ${options[index]} on index: $index'),
-            leading: const Icon(Icons.ac_unit_sharp),
-            subtitle: const Text('Subb'),
-          );
-        },
-      ),
-    );
+        appBar: AppBar(
+          title: const Text('Componentes'),
+        ),
+        body: ListView(
+          children: _listTileShort(),
+        ));
   }
 
-  List<ListTile> _listTile() {
-    List<ListTile> list = [];
+  List<Widget> _listTile() {
+    List<Widget> list = [];
 
     for (var item in options) {
       final widgetTile = ListTile(
@@ -35,11 +27,9 @@ class HomePageTemp extends StatelessWidget {
     return list;
   }
 
-  List<ListTile> _listTileShort() {
-    return options.map((item) {
-      return ListTile(
-        title: Text(item),
-      );
-    }).toList();
-  }
+  List<Widget> _listTileShort() => options.map((item) {
+        return ListTile(
+          title: Text(item),
+        );
+      }).toList();
 }
