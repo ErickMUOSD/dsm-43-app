@@ -7,12 +7,20 @@ class HomePageTemp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Componentes'),
-        ),
-        body: ListView(
-          children: _listTileShort(),
-        ));
+      appBar: AppBar(
+        title: const Text('Componentes'),
+      ),
+      body: ListView.builder(
+        itemCount: options.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text('Value ${options[index]} on index: $index'),
+            leading: const Icon(Icons.ac_unit_sharp),
+            subtitle: const Text('Subb'),
+          );
+        },
+      ),
+    );
   }
 
   List<Widget> _listTile() {
