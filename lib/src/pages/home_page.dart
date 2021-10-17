@@ -1,3 +1,4 @@
+import 'package:dsm_43_app/src/pages/alert_page.dart';
 import 'package:dsm_43_app/src/providers/menu_provider.dart';
 import 'package:dsm_43_app/src/utils/icon_string_util.dart';
 import 'package:flutter/material.dart';
@@ -18,16 +19,16 @@ class HomePage extends StatelessWidget {
       initialData: [],
       builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
         return ListView(
-          children: _listItems(snapshot.data),
+          children: _listItems(snapshot.data, context),
         );
       },
     );
   }
 
-  List<Widget> _listItems(List<dynamic>? data) {
+  List<Widget> _listItems(List<dynamic>? data, BuildContext context) {
     final List<Widget> options = [];
     if (data != null) {
-      data.forEach((element) {
+      for (var element in data) {
         final wTemp = ListTile(
           title: Text(element['texto']),
           leading: getIcon(element['icon']),
@@ -35,10 +36,15 @@ class HomePage extends StatelessWidget {
             Icons.keyboard_arrow_right,
             color: Colors.cyan,
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => AlertPage()),
+            );
+          },
         );
         options.add(wTemp);
-      });
+      }
     } else {
       options.add(const Text('Something wen wrong'));
     }
