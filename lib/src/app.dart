@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/home_temp.dart';
+import 'pages/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePageTemp(),
+      home: HomePage(),
     );
   }
 }
