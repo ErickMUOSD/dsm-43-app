@@ -1,3 +1,4 @@
+import 'package:dsm_43_app/src/providers/menu_provider.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,6 +12,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _list() {
+    print(menuProvider.options);
     return ListView(
       children: _listItems(),
     );
