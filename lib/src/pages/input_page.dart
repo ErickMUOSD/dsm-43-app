@@ -116,11 +116,11 @@ class _InputPageState extends State<InputPage> {
 
   void _selectDate(BuildContext context) async {
     DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2018),
-      lastDate: DateTime(2040),
-    );
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2018),
+        lastDate: DateTime(2040),
+        locale: const Locale('es', 'ES'));
     if (picked != null) {
       setState(() {
         _date = picked.toString();
