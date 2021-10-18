@@ -1,3 +1,4 @@
+import 'package:dsm_43_app/src/pages/animated_container.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dsm_43_app/src/pages/avatar_page.dart';
@@ -9,5 +10,6 @@ Map<String, WidgetBuilder> getAppRoutes() {
     '/': (context) => HomePage(),
     'alert': (context) => const AlertPage(),
     'avatar': (context) => const Avatar_Page(),
+    'animatedContainer': (context) => AnimateContainer(),
   };
 }

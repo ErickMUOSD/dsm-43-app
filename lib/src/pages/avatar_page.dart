@@ -9,7 +9,7 @@ class Avatar_Page extends StatelessWidget {
       appBar: AppBar(
         title: Text('Avatar Page'),
         actions: [
-          CircleAvatar(
+          const CircleAvatar(
             child: Image(
               image: NetworkImage(
                   'https://pbs.twimg.com/media/FBwryNfXMBAq7gm?format=jpg&name=900x900'),
@@ -24,7 +24,7 @@ class Avatar_Page extends StatelessWidget {
           )
         ],
       ),
-      body: Center(
+      body: const Center(
         child: Image(
           image: NetworkImage(
               'https://pbs.twimg.com/media/FBwryNfXMBAq7gm?format=jpg&name=900x900'),
