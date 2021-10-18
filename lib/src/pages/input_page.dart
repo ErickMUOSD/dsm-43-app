@@ -17,7 +17,7 @@ class _InputPageState extends State<InputPage> {
         ),
         body: ListView(
           padding: EdgeInsets.all(10.0),
-          children: [_createInput(), Divider(), _profile()],
+          children: [_createInput(), const Divider(), _profile()],
         ));
   }
 
