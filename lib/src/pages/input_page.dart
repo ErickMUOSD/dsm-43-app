@@ -9,6 +9,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   String _name = 'User';
+  String _email = 'adress@email.com';
+  String _password = 'qwrt';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +20,14 @@ class _InputPageState extends State<InputPage> {
         ),
         body: ListView(
           padding: EdgeInsets.all(10.0),
-          children: [_createInput(), const Divider(), _profile()],
+          children: [
+            _createInput(),
+            const Divider(),
+            _emailInput(),
+            const Divider(),
+            _passwordInput(),
+            _profile(),
+          ],
         ));
   }
 
@@ -30,7 +40,7 @@ class _InputPageState extends State<InputPage> {
         hintText: 'NOmbre de la persona',
         labelText: 'Nombre',
         helperText: 'Sólo el nombre',
-        suffixIcon: Icon(Icons.accessibility),
+        suffixIcon: Icon(Icons.person),
         icon: Icon(Icons.ac_unit_rounded),
       ),
       onChanged: (text) {
@@ -41,7 +51,42 @@ class _InputPageState extends State<InputPage> {
 
   Widget _profile() {
     return ListTile(
-      title: Text('NOmbre es $_name'),
+      title: Text('Mi Nombre es $_name'),
+      subtitle: Text('Email adress es $_email'),
+    );
+  }
+
+  Widget _emailInput() {
+    return TextField(
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+        counter: Text('letras ${_email.length}'),
+        hintText: 'NOmbre de la persona',
+        labelText: 'Nombre',
+        suffixIcon: Icon(Icons.alternate_email),
+        icon: Icon(Icons.email),
+      ),
+      onChanged: (email) {
+        _email = email;
+      },
+    );
+  }
+
+  Widget _passwordInput() {
+    return TextField(
+      obscureText: true,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+        counter: Text('letras ${_password.length}'),
+        hintText: 'NOmbre de la persona',
+        labelText: 'Nombre',
+        suffixIcon: Icon(Icons.alternate_email),
+        icon: Icon(Icons.email),
+      ),
+      onChanged: (email) {
+        _password = email;
+      },
     );
   }
 }
