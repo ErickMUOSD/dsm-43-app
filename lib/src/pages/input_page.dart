@@ -12,7 +12,8 @@ class _InputPageState extends State<InputPage> {
   String _email = 'adress@email.com';
   String _password = 'qwrt';
   String _date = 'qwrt';
-
+  List<String> _powers = ['Volar', 'Super', 'Rayoxs'];
+  String? _selectedOption = "Volar";
   TextEditingController _inputFieldDateController = TextEditingController();
 
   @override
@@ -31,6 +32,8 @@ class _InputPageState extends State<InputPage> {
             _passwordInput(),
             const Divider(),
             _datePicker(context),
+            const Divider(),
+            _dropDown(),
             _profile(),
           ],
         ));
@@ -127,5 +130,30 @@ class _InputPageState extends State<InputPage> {
         _inputFieldDateController.text = _date;
       });
     }
+  }
+
+  List<DropdownMenuItem<String>> getOptionDrop() {
+    List<DropdownMenuItem<String>> list = [];
+
+    _powers.forEach((element) {
+      list.add(DropdownMenuItem(
+        child: Text(element),
+        value: element,
+      ));
+    });
+
+    return list;
+  }
+
+  Widget _dropDown() {
+    return DropdownButton(
+      items: getOptionDrop(),
+      value: _selectedOption,
+      onChanged: (String? option) {
+        setState(() {
+          _selectedOption = option;
+        });
+      },
+    );
   }
 }
