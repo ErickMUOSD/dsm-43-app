@@ -11,6 +11,9 @@ class _InputPageState extends State<InputPage> {
   String _name = 'User';
   String _email = 'adress@email.com';
   String _password = 'qwrt';
+  String _date = 'qwrt';
+
+  TextEditingController _inputFieldDateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,8 @@ class _InputPageState extends State<InputPage> {
             _emailInput(),
             const Divider(),
             _passwordInput(),
+            const Divider(),
+            _datePicker(context),
             _profile(),
           ],
         ));
@@ -40,8 +45,8 @@ class _InputPageState extends State<InputPage> {
         hintText: 'NOmbre de la persona',
         labelText: 'Nombre',
         helperText: 'Sólo el nombre',
-        suffixIcon: Icon(Icons.person),
-        icon: Icon(Icons.ac_unit_rounded),
+        suffixIcon: const Icon(Icons.person),
+        icon: const Icon(Icons.ac_unit_rounded),
       ),
       onChanged: (text) {
         _name = text;
@@ -64,8 +69,8 @@ class _InputPageState extends State<InputPage> {
         counter: Text('letras ${_email.length}'),
         hintText: 'NOmbre de la persona',
         labelText: 'Nombre',
-        suffixIcon: Icon(Icons.alternate_email),
-        icon: Icon(Icons.email),
+        suffixIcon: const Icon(Icons.alternate_email),
+        icon: const Icon(Icons.email),
       ),
       onChanged: (email) {
         _email = email;
@@ -81,12 +86,46 @@ class _InputPageState extends State<InputPage> {
         counter: Text('letras ${_password.length}'),
         hintText: 'NOmbre de la persona',
         labelText: 'Nombre',
-        suffixIcon: Icon(Icons.alternate_email),
-        icon: Icon(Icons.email),
+        suffixIcon: const Icon(Icons.password),
+        icon: const Icon(Icons.password),
       ),
       onChanged: (email) {
         _password = email;
       },
     );
+  }
+
+  Widget _datePicker(BuildContext context) {
+    return TextField(
+      controller: _inputFieldDateController,
+      enableInteractiveSelection: false,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+        counter: Text('letras ${_password.length}'),
+        hintText: 'Fecha de nacimiento',
+        labelText: 'Fecha de nacimiento',
+        suffixIcon: const Icon(Icons.date_range),
+        icon: const Icon(Icons.calendar_today),
+      ),
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+        _selectDate(context);
+      },
+    );
+  }
+
+  void _selectDate(BuildContext context) async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2018),
+      lastDate: DateTime(2040),
+    );
+    if (picked != null) {
+      setState(() {
+        _date = picked.toString();
+        _inputFieldDateController.text = _date;
+      });
+    }
   }
 }
