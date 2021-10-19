@@ -1,3 +1,4 @@
+import 'package:dsm_43_app/src/pages/list_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dsm_43_app/src/pages/avatar_page.dart';
@@ -15,5 +16,6 @@ Map<String, WidgetBuilder> getAppRoutes() {
     'animatedContainer': (context) => AnimateContainer(),
     'inputs': (context) => InputPage(),
     'slider': (context) => SliderPage(),
+    'list': (context) => ListPage(),
   };
 }
