@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
 class CounterPage extends StatefulWidget {
-  CounterPage({Key? key}) : super(key: key);
+  const CounterPage({Key? key}) : super(key: key);
 
   @override
   _CounterPageState createState() => _CounterPageState();

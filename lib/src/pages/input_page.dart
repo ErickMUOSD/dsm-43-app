@@ -20,10 +20,11 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          // ignore: prefer_const_constructors
           title: Text('Animated Container'),
         ),
         body: ListView(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           children: [
             _createInput(),
             const Divider(),
@@ -135,6 +136,7 @@ class _InputPageState extends State<InputPage> {
   List<DropdownMenuItem<String>> getOptionDrop() {
     List<DropdownMenuItem<String>> list = [];
 
+    // ignore: avoid_function_literals_in_foreach_calls
     _powers.forEach((element) {
       list.add(DropdownMenuItem(
         child: Text(element),

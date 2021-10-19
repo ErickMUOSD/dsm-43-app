@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 class SliderPage extends StatefulWidget {
-  SliderPage({Key? key}) : super(key: key);
+  const SliderPage({Key? key}) : super(key: key);
 
   @override
   _SliderPageState createState() => _SliderPageState();
 }
 
 class _SliderPageState extends State<SliderPage> {
-  double _sliderValue = 200.0, _width = 100, _height = 100;
+  double _sliderValue = 200.0;
   bool _enableCheck = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SLiders'),
+        title: const Text('SLiders'),
       ),
       body: Column(
         children: [

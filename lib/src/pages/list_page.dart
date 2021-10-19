@@ -3,20 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class ListPage extends StatefulWidget {
-  ListPage({Key? key}) : super(key: key);
+  const ListPage({Key? key}) : super(key: key);
 
   @override
   _ListPageState createState() => _ListPageState();
 }
 
 class _ListPageState extends State<ListPage> {
-  List<int> _list = [];
+  final List<int> _list = [];
   int _lastItem = 0;
   final ScrollController _scrollController = ScrollController();
   bool _isLoading = false;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _addMoreItems();
 
@@ -30,7 +29,6 @@ class _ListPageState extends State<ListPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _scrollController.dispose();
   }
@@ -55,7 +53,7 @@ class _ListPageState extends State<ListPage> {
       itemBuilder: (BuildContext context, index) {
         final image = _list[index];
         return Image(
-            image: NetworkImage('https://picsum.photos/id/${image}/500/300'));
+            image: NetworkImage('https://picsum.photos/id/$image/500/300'));
       },
       itemCount: _list.length,
     );
@@ -83,17 +81,18 @@ class _ListPageState extends State<ListPage> {
   }
 
   Widget _wdigetLoading() {
-    if (_isLoading)
+    if (_isLoading) {
       return Center(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [
+          children: const [
             CircularProgressIndicator(),
           ],
         ),
       );
-    else
+    } else {
       return Container();
+    }
   }
 }

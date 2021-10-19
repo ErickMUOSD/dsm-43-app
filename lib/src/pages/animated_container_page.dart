@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class AnimateContainer extends StatefulWidget {
-  AnimateContainer({Key? key}) : super(key: key);
+  const AnimateContainer({Key? key}) : super(key: key);
 
   @override
   _AnimateContainerState createState() => _AnimateContainerState();
@@ -19,7 +19,7 @@ class _AnimateContainerState extends State<AnimateContainer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animated Container'),
+        title: const Text('Animated Container'),
       ),
       body: Center(
         child: AnimatedContainer(

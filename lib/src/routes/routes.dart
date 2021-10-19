@@ -10,12 +10,13 @@ import 'package:dsm_43_app/src/pages/slider_page.dart';
 
 Map<String, WidgetBuilder> getAppRoutes() {
   return <String, WidgetBuilder>{
-    '/': (context) => HomePage(),
+    '/': (context) => const HomePage(),
     'alert': (context) => const AlertPage(),
-    'avatar': (context) => const Avatar_Page(),
-    'animatedContainer': (context) => AnimateContainer(),
+    'avatar': (context) => const AvatarPage(),
+    'animatedContainer': (context) => const AnimateContainer(),
     'inputs': (context) => InputPage(),
-    'slider': (context) => SliderPage(),
+    'slider': (context) => const SliderPage(),
+    // ignore: prefer_const_constructors
     'list': (context) => ListPage(),
   };
 }
